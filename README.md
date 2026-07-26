@@ -1,6 +1,8 @@
-# B.M.T-style Vehicle Buyback Site (WordPress)
+# MM Kaitori — WordPress Client Site
 
 Japanese vehicle buyback / scrap car lead-generation site, modeled after [bmtkaitori.com](https://www.bmtkaitori.com/).
+
+**Repository:** [github.com/MUAKH93/mm-kaitori](https://github.com/MUAKH93/mm-kaitori)
 
 ## What's included
 
