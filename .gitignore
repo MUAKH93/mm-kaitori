@@ -1,0 +1,7 @@
+# WordPress uploads and local env — not committed
+.env
+wp_data/
+
+# OS
+.DS_Store
+Thumbs.db

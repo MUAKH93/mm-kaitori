@@ -1,0 +1,81 @@
+--- form ---
+<label> お名前 <span class="required">※必須</span>
+    [text* your-name autocomplete:name placeholder "例）山田 太郎"] </label>
+
+<label> メールアドレス <span class="required">※必須</span>
+    [email* your-email autocomplete:email placeholder "例）example@mail.com"] </label>
+
+<label> 電話番号 <span class="required">※必須</span>
+    [tel* your-phone autocomplete:tel placeholder "例）090-1234-5678"] </label>
+
+<label> ご住所
+    [text your-address placeholder "例）福岡県福岡市..."] </label>
+
+<label> メーカー
+    [text car-maker placeholder "例）トヨタ"] </label>
+
+<label> 車種・グレード
+    [text car-model placeholder "例）プリウス S"] </label>
+
+<label> 走行距離
+    [text mileage placeholder "例）50000km"] </label>
+
+<label> 年式
+    [text car-year placeholder "例）2018年"] </label>
+
+<label> ハンドル
+    [select steering include_blank "右" "左"] </label>
+
+<label> 車検（期限）
+    [text inspection placeholder "例）2026年3月"] </label>
+
+<label> 画像添付
+    [file car-image limit:5mb filetypes:jpg|jpeg|png|pdf] </label>
+
+<label> 備考
+    [textarea your-message placeholder "車の状態など、補足があればご記入ください"] </label>
+
+[acceptance acceptance-terms] 確認画面は表示されません。上記内容にて送信しますので、よろしければチェックを入れてください。
+
+[submit "送信する"]
+
+--- mail ---
+subject: 【無料査定】新規お問い合わせ - [your-name] 様
+sender: [_site_title] <wordpress@[_site_url]>
+recipient: [_site_admin_email]
+body: 無料査定フォームから送信がありました。
+
+お名前: [your-name]
+メール: [your-email]
+電話番号: [your-phone]
+ご住所: [your-address]
+メーカー: [car-maker]
+車種・グレード: [car-model]
+走行距離: [mileage]
+年式: [car-year]
+ハンドル: [steering]
+車検（期限）: [inspection]
+備考:
+[your-message]
+
+--
+送信日時: [_date] [_time]
+送信元URL: [_url]
+additional_headers:
+attachments: [car-image]
+use_html: 0
+exclude_blank: 0
+
+--- mail_2 ---
+
+--- messages ---
+mail_sent_ok=送信ありがとうございました。担当者よりご連絡いたします。
+mail_sent_ng=送信に失敗しました。時間をおいて再度お試しください。
+validation_error=入力内容に誤りがあります。確認してください。
+accept_terms=送信前に同意チェックを入れてください。
+invalid_required=必須項目を入力してください。
+invalid_email=メールアドレスの形式が正しくありません。
+invalid_tel=電話番号の形式が正しくありません。
+upload_failed=ファイルのアップロードに失敗しました。
+upload_file_type_invalid=許可されていないファイル形式です。
+upload_file_too_large=ファイルサイズが大きすぎます。
