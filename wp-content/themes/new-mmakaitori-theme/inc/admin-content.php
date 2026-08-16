@@ -275,7 +275,9 @@ function mma_content_admin_page() {
 	?>
 	<div class="wrap">
 		<h1>MMA Contents — サイト文言編集</h1>
-		<p>プログラマー不要でホームページの文章を変更できます。変更後は必ず「保存」を押してください。</p>
+		<p>プログラマー不要でホームページの文章を変更できます。変更後は必ず「保存」を押してください。
+			<a href="<?php echo esc_url( admin_url( 'admin.php?page=mma-editor-guide' ) ); ?>">使い方ガイドを見る →</a>
+		</p>
 		<?php if ( ! empty( $_GET['updated'] ) ) : ?>
 			<div class="notice notice-success is-dismissible"><p>保存しました。サイトを更新して確認してください。</p></div>
 		<?php endif; ?>
