@@ -5,9 +5,18 @@
  * @package MMA_Kaitori
  */
 
-$c      = mma_contact();
-$first  = MMA_KAITORI_URI . '/assets/images/hero-first.png';
-$second = MMA_KAITORI_URI . '/assets/images/hero-second.png';
+$c = mma_contact();
+
+$first_default  = MMA_KAITORI_URI . '/assets/images/hero-first.png';
+$second_default = MMA_KAITORI_URI . '/assets/images/hero-second.png';
+$first          = get_theme_mod( 'mma_banner_first', '' );
+$second         = get_theme_mod( 'mma_banner_second', '' );
+if ( ! $first ) {
+	$first = $first_default;
+}
+if ( ! $second ) {
+	$second = $second_default;
+}
 ?>
 <section class="hero hero--banners" id="top">
 	<div class="hero-banners">

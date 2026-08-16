@@ -16,6 +16,53 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function mma_kaitori_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
+		'mma_homepage_banners',
+		array(
+			'title'       => 'Homepage banners / トップ画像',
+			'description' => 'Upload the two big pictures at the top of the homepage. English: Appearance → Customize → Homepage banners.',
+			'priority'    => 25,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'mma_banner_first',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_url_raw',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'mma_banner_first',
+			array(
+				'label'       => 'TOP image 1 (main banner)',
+				'description' => 'First big picture under the header. Recommended wide image (about 1920px).',
+				'section'     => 'mma_homepage_banners',
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'mma_banner_second',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_url_raw',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'mma_banner_second',
+			array(
+				'label'       => 'TOP image 2 (free appraisal banner)',
+				'description' => 'Second picture under image 1 (no gap). Clicking it scrolls to the form.',
+				'section'     => 'mma_homepage_banners',
+			)
+		)
+	);
+
+	$wp_customize->add_section(
 		'mma_contact',
 		array(
 			'title'    => 'MMA Contact / 連絡先',
@@ -66,23 +113,5 @@ function mma_kaitori_customize_register( $wp_customize ) {
 			)
 		);
 	}
-
-	$wp_customize->add_setting(
-		'mma_hero_image',
-		array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_url_raw',
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'mma_hero_image',
-			array(
-				'label'   => 'Hero image / ヒーロー画像',
-				'section' => 'mma_contact',
-			)
-		)
-	);
 }
 add_action( 'customize_register', 'mma_kaitori_customize_register' );

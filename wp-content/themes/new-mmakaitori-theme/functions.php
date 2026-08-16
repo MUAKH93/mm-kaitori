@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'MMA_KAITORI_VERSION', '1.4.6' );
+define( 'MMA_KAITORI_VERSION', '1.4.7' );
 define( 'MMA_KAITORI_DIR', get_template_directory() );
 define( 'MMA_KAITORI_URI', get_template_directory_uri() );
 
